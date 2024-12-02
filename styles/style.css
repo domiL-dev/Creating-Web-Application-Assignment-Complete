@@ -1,0 +1,786 @@
+/*
+filename: Dominik Leibel
+author: Dominik Leibel
+created: 18.08.2024
+last modified: 18.08.2024
+description: Stylesheet for VR Headset (Assignment 1) 
+*/
+
+*{font-family: sans-serif}
+
+/*Responsive Font Size*/
+/*https://www.w3schools.com/css/css_font_size.asp*/
+
+h1 {
+    font: normal normal bold 5vw 'Courier New', Courier, monospace  ;
+    color:black;
+    text-align:center;
+    text-wrap: nowrap;}
+
+a {color: darkblue;}
+
+body#homepage{
+    /*used the color picker in paint to figure out the color for the background*/
+    background-color: rgb(97,188,162);
+    background-image: url("images/BackgroundGraphic.gif");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position-y: 100px; 
+    transition: background-position-y 3s ;
+    
+}
+
+@media (max-width: 768px) {
+    body.homepage {
+        /*Change the Background Image position, moves down when the window with gets smaller than 768*/
+        background-position-y: 100px; 
+        transition: background-position-y 3s ;
+    }
+}
+
+
+/*---Navigation Bar---*/
+nav a { text-decoration: none;
+    color:black;
+    margin: 5px 10px;
+    padding:0.2em 0.6em;
+    border: 4px solid #ccc;
+    min-width: 2em;
+    text-align: center;
+    }
+
+/*Flexbox: elements in nav bar wraps automatically if not enough space */
+/*https://www.w3schools.com/css/css3_flexbox_container.asp#flex-direction*/
+
+/*Using clamp to achive a responsive font-size and preventing the font-size to shrink to small to read*/
+/*https://whiteleydesigns.com/harnessing-the-power-of-css-clamp-for-fluid-typography-and-spacing-in-wordpress-block-editor/#:~:text=Here's%20a%20basic%20syntax%20for,a%20maximum%20of%2024%20pixels.*/
+.flex-container {
+        font-size: clamp(1em,2vw, 10em);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+
+/*Using Text text-shadow instead of font-weightin to prevent that an element wraps so the layout shifts*/  
+/*nav a:hover {text-shadow: 1px 0 0 currentColor, -1px 0 0 currentColor, 0 1px 0 currentColor, 0 -1px 0 currentColor;}
+*/
+nav a:hover {text-shadow: 1px 0 0 currentColor}
+
+#BackgroundGraphicSource a{color: darkblue;}
+
+#BackgroundGraphicSource {  
+    margin-top: auto;
+    text-align:  right;
+}
+
+
+article#ArticleHomepage {
+    color:rgb(74, 77, 81);
+    font-size: 2vw;
+    font-weight: bold;
+    width: 80%;
+    margin: 350px auto 0px;
+    transition: margin 3s;
+}
+
+h2#h2_homepage {color: black;}
+
+@media (max-width: 768px) {
+
+    article#ArticleHomepage {
+            margin-top: 150px;
+            transition: margin 3s;}
+
+}
+
+footer {
+    border-top: 4px solid aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+    clear:both;
+}
+
+
+/*---Style for Product Page---*/
+body{
+    /*used the color picker in paint to figure out the color for the background*/
+    background-color: rgb(97,188,162);  
+}
+
+h2{
+    color:black;
+    display: block;}
+
+div.ProductRange_slides {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                gap: 20px;
+}
+
+.Product {
+    background-color: white;
+    border: 2px solid aliceblue;
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+
+a.ImageSource { 
+    color: darkblue;
+    margin-left: auto;
+    display:block;
+}
+
+.Product p {
+    font-size: 1em ;
+    white-space: nowrap;
+    font-weight: bold;
+    margin: auto;
+}
+
+/*smaller font-size for Product 1 to be sure that it's displayed in on line*/
+p#Product_1 {font-size: 0.9em;}
+
+
+img.ProductImage {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+    margin-bottom:10px;
+}
+
+div.Product{
+    height: 300px;
+    width: 200px ;
+    padding: 10px;}
+
+
+div.ProductOptions{
+    border: 2px solid bisque;
+    max-width: 100%;
+}
+
+
+div.ProductOptions p:first-child{
+    text-align: left;
+    display: block;
+    margin-top: 0px;
+    margin-bottom:0px;
+}
+                                
+
+div.ProductOptions p:nth-child(2), div.ProductOptions p:last-child{ 
+    text-align: left;
+    margin: auto 0px auto auto ;
+    display: block;   
+    font-size: 0.8rem;
+    border: 2px solid bisque;
+    width: 80%;
+}
+
+/*Product Decriptions*/
+
+/*Contains the single ProductDescriptions*/
+#ProductDescriptions {  
+    width: 65%;
+    margin-top: 30px;
+    float: left;
+}
+
+.ProductDescriptions{
+    border: 2px solid bisque;
+    width:100%;
+    height: fit-content;
+    background-color: whitesmoke;
+    margin: 10px 0;
+    float:left;
+    display:block;
+}
+
+article.ProductDescription {
+    margin: 5%;
+}
+
+
+aside { 
+    margin: 10px;
+    margin-top: 40px;
+    padding-left: 30px;
+    float:right;
+    width: 25%}
+
+aside section#Options{ 
+    border: 2px solid bisque;
+    width: 100%;
+    height: fit-content;
+    background-color: whitesmoke;       
+}
+
+@media (max-width: 800px) {
+    
+    #ProductDescriptions {
+        float: none;
+        width: 100%;
+    }
+
+    .ProductDescriptions{
+        float:none;
+        padding: 0;
+        width: 90%;
+        margin: 10px auto;
+        clear:both;
+    }
+
+    aside{
+        float: none;
+        width: 90%;
+        height: 400px;
+        margin:auto;
+        clear: both;
+    }
+
+    .VisibilityOptions {width: 30%}
+}
+
+
+li {
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+/*In default the Options will be not displayed*/
+.VisibilityOptions {display: none;
+                    border: 2px solid bisque;
+                    border-radius: 10px;
+                    background-color: white;
+                    width:80%}
+
+/*When hovering over the Product Title, then display options*/
+li:hover > .VisibilityOptions {display: block;}
+
+
+/*------Enquire-----------------------------------------------------------------------------------------------*/
+
+fieldset#Contact_information {
+    margin-top: 20px;
+    width: 45%;
+    float: left;
+    height: 300px}
+
+fieldset#Address {              
+    margin-top: 20px;
+    width: 45%;
+    float: right;
+    height: 300px;}
+
+fieldset#fieldset_Product {margin-top:20px;}
+
+
+@media (max-width: 800px) {
+
+    fieldset#Contact_information {
+        width: 100%;
+        float: none;
+        height: fit-content;}
+    
+    fieldset#Address {
+        width: 100%;
+        float: none;
+        height: fit-content;}
+
+}
+
+
+/*-------About Me Page-----------------------------------------------------------------------------------------*/
+dl {float:left;
+    display: flex;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    width:60%;}
+
+figure#me {float: right;
+        border: 2px double aliceblue;
+        width: fit-content;
+        padding: 20px;
+        margin: 10px 0;
+        }
+
+@media  (max-width:800px) {
+    dl {
+        float:none;
+        clear:both;
+        width:100%;
+    }
+
+    figure#me {
+        float: none;
+        width: fit-content;
+        clear: both;
+        margin: 10px auto;
+    }
+    
+}
+
+dt, dd {display: inline-block;}
+
+dt{ 
+    text-align: left;
+    border: 2px solid aliceblue;
+    width: 25%;
+    display: inline-block;
+}
+
+dd{ 
+    text-align: left;
+    border: 2px solid aliceblue;
+    width:60%;
+    display: inline-block;
+}
+
+
+
+
+
+section#timetable {
+    margin:10px auto;
+    clear:both;
+    width: 90%;}
+
+th, td{
+    background-color: #e5f0fd;
+    text-align: center;
+    width:auto;
+}
+
+th {font-weight: bold;}
+
+
+/*----Enhancement2: Product Slider---------------------------------------------------------------------------------*/
+
+/*--- hiding the radio buttons ---*/
+.ProductRange_slides input[type="radio"]  { 
+    display: none; 
+}
+
+.slideNumber {  
+    display: none;
+}
+
+div.arrows {display:none;}
+
+
+
+
+/*--- Enhancement 1: Image Map --------------------------------------------------------------------------------*/
+h2#deliveryTime{text-align: left;
+                margin-left:10px;}
+
+
+.ImageMap{ 
+    color: aliceblue;
+    text-align: center;
+    height: 600px;
+    width: 600px;
+    margin: 10px auto;
+    border: 5px solid aliceblue;
+    background-image: url(images/australia.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+
+
+div#Plane {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 7%;
+    left: 70%;  
+    height:100px;
+    width: 80px;
+}
+
+#Plane p{display:none;}
+
+div#WA {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 40%;
+    left: 15%;  
+    height:80px;
+    width: 80px;
+    z-index: 5;
+}
+       
+div#WA:hover {opacity: 0;}
+
+#WA:hover ~ #Plane {
+    top: 40%;
+    left: 15%; 
+    transition:  4s;   
+}
+
+#WA:hover ~ #Plane p#long { display: block;}
+
+   
+div#NT {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 20%;
+    left: 42%;  
+    height:80px;
+    width: 80px;
+    z-index: 5;
+}
+
+div#NT:hover {opacity: 0;}
+
+#NT:hover ~ #Plane {
+    top: 20%;
+    left: 42%;  
+    transition:  1s;   
+ }
+
+#NT:hover ~ #Plane p#short { display: block;}
+
+
+div#SA {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 50%;
+    left: 45%;  
+    height:80px;
+    width: 80px;
+    z-index: 5;
+}
+
+ div#SA:hover {opacity: 0;}
+           
+#SA:hover ~ #Plane {
+    top: 50%;
+    left: 45%;  
+    transition: 3s;   
+}
+           
+#SA:hover ~ #Plane p#normal { display: block;}
+           
+
+div#QLD {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 30%;
+    left: 70%;  
+    height:80px;
+    width: 80px;
+    z-index: 5;
+}
+
+div#QLD:hover {opacity: 0;}
+                   
+#QLD:hover ~ #Plane {
+    top: 30%;
+    left: 70%;  
+    transition: 1s;   
+}
+                   
+#QLD:hover ~ #Plane p#short { display: block;}
+          
+
+div#NSW {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 55%;
+    left: 75%;  
+    height:70px;
+    width: 80px;
+    z-index: 5;
+}
+
+#NSW:hover ~ #Plane {
+    top: 55%;
+    left: 75%; 
+    transition: 3s;   
+}
+                                               
+div#NSW:hover {opacity: 0;}
+                        
+#NSW:hover ~ #Plane {
+    top: 55%;
+    left: 75%; 
+    transition: 3s;   
+}
+                        
+#NSW:hover ~ #Plane p#normal { display: block;}
+       
+
+div#VIC {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 75%;
+    left: 68%;  
+    height:50px;
+    width: 100px;
+    z-index: 5;
+}
+
+       
+div#VIC:hover {opacity: 0;}
+        
+#VIC:hover ~ #Plane {
+    top: 75%;
+    left: 68%;
+    height: 50px;
+    width: 180px;
+    transition: 3s;   
+}
+        
+#VIC:hover ~ #Plane p#medium { display: inline-block;}
+#VIC:hover ~ #Plane h5 { display: inline-block;}
+
+
+div#TAS {
+    border:3px solid aliceblue;
+    position: absolute;
+    top: 85%;                        
+    left: 70%;          
+    height:50px;   
+    width: 100px;   
+    z-index: 5;
+}
+
+div#TAS:hover {opacity: 0;
+}
+                               
+#TAS:hover ~ #Plane {
+    top: 85%;
+    left: 70%;
+    height:50px;
+    width: 180px;
+    transition: 4s;   
+}
+                               
+#TAS:hover ~ #Plane p#long { display: inline-block;}
+#TAS:hover ~ #Plane h5 { display: inline-block;}
+
+
+@media (max-width:600px) {
+    
+    .ImageMap{
+        width:90%;
+        background-size: contain;
+    }
+                                
+    div#VIC {
+        top: 65%;
+        left: 65%;  
+        height:fit-content;
+    }
+                                
+    #VIC:hover ~ #Plane {
+        top: 67%;
+        left: 50%; 
+        height: 50px;
+        width: 180px; 
+    }
+
+    #VIC:hover ~ #Plane p#medium { display: inline-block;}
+    #VIC:hover ~ #Plane h5 { display: inline-block;}
+                                
+                                
+    div#TAS {
+        top: 77%;
+        left: 70%;  
+        width: 100px;
+    }
+                                            
+    #TAS:hover ~ #Plane {
+        top: 77%;
+        left: 55%;  
+    }
+
+    div#NSW {
+        height:50px;
+        width: 90px;
+    }
+                        
+    #NSW:hover ~ #Plane {
+        top: 45%;
+        left: 70%; 
+    }
+
+}
+
+/*Assignment Part 2 -----------------------------------------------*/
+
+.select_option {display: block;}
+
+#cc_type {display: inline-block;}
+
+#dataTransfered td {text-align: left;}
+
+fieldset#dataTransfer {display: none;}
+
+
+/*Enhancement 2 Style Checker----------------------------------------*/
+
+#styleCheck{
+    padding: 10px;
+    border: 2px solid aliceblue;
+    
+}
+
+#styleCheck_button{
+    
+    padding: 10px;
+}
+
+#styleCheck_container{ 
+    color: aliceblue;
+    text-align: center;
+    height: 600px;
+    width: 600px;
+    margin: 10px auto;
+    border: 5px solid aliceblue;
+    background-image: url(images/Me.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+#styleCheck_container #Headset_1 {
+        max-width: 400px;
+        cursor: grab;
+        position: absolute;
+}
+
+#styleCheck_container #Headset_2 {
+    max-width: 200px;
+    cursor: grab;
+    position: absolute;
+}
+
+#timerContainer {
+    background-color: white;
+    border: 2px solid aliceblue;
+    height: 100px;
+    width: 400px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+/*Assignment 3 ----------------------------------*/
+
+h2#errorMessage {
+    font: normal normal bold 5vw 'Courier New', Courier, monospace  ;
+    color:black;
+    text-wrap: nowrap;}
+
+.errorMessage {
+    font-size: larger;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+}
+      
+                       
+/*Receipt.php -----------------------------------*/
+
+#receiptContainer{
+    border: 2px solid aliceblue;
+    padding:10px;
+    margin: 10px;
+}
+
+#customerAddress {
+    border: 2px solid aliceblue;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    width: 40%;
+
+}
+
+
+#contact {
+
+    border: 2px solid aliceblue;  
+    padding:10px;
+    margin:10px; 
+    float: right;
+    width: 40%;
+
+}
+
+#orderStatus {
+    border: 2px solid aliceblue;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    width: 40%;
+
+}
+
+#orderDetails {
+        border: 2px solid aliceblue;    
+        padding: 10px;
+        margin:10px; 
+        float: right;
+        width: 40%
+    
+}
+
+#price {
+    font-size: xx-large;
+    text-align: right;
+    clear: both;
+}   
+
+@media (max-width:600px) {
+    #customerAddress {
+        width: 90%; 
+        float: none;
+    }
+
+    #orderStatus { 
+        width: 90%; 
+        float: none;
+    }
+    
+    #contact {
+        width: 90%; 
+        float: none;
+    }
+    
+    #orderDetails { 
+        width: 90%; 
+        float: none;
+    }
+}
+
+
+/*manager.php*/
+
+#customQuery{
+    display: none;
+}
+
+
+/*Accessabilty Report */
+iframe {
+    width: 90%;
+    height: 500px;
+}
